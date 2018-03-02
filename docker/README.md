@@ -40,15 +40,18 @@ This will likely fail as there is a bug with catkin. To continue simpli
 Reperat until everythin is compiled. Alternatively if you want to compile only one package:
 
 ```bash
-  cd catkin_ws/
   catkin build --profile odroid package_to_build
 ```
 And repeat previous step in case of errors.
+Also if you need to do a clean Build
+```bash
+  catkin clean -b --profile odroid 
+```
 
 ## Copying
 Now you can exit the container, the docker daemon will stop it so it will not use cpu.
-To copy you need to copy workspace into the model car. Adn reconfigure the workspace, thankfully the replace.sh file does all that. But this line must be mentioned.
+To copy you need to copy the workspace into the model car. And reconfigure the workspace, thankfully the replace.sh file does all that. But this line must be mentioned.
 ```bash
 target=root@192.168.43.102:./model_car/$ws_name/
 ```
-As it is now. The configuration script only works if you copy the workspace into /root/model_car inside the model car. If you want to compile somewhere else you must change the workspace directory on the container to match exactly the path of the workspace in the model car. 
+As it is now. The configuration script only works if you copy the workspace into /root/model_car inside the model car. If you want to compile somewhere else you must change the workspace directory on the container to match exactly the path of the workspace in the model car.
