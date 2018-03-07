@@ -15,7 +15,7 @@ To circumvent this the presnt docker file is created. It lets emulate a Indigo m
 ```bash
   docker buld -t automodel .
 ```
-This can take a few minutes as it pull and updpate relevant data from  server. the -t tag is optional it specified a user provided name for the image.
+This can take a few minutes as it pull and updpate relevant data from  server. the -t tag is optional it specifies a user provided name for the image.
 
 ## Run container
 The configuration for the cross compiling is already set via the dockerfile all you need to do is run the container.
@@ -48,13 +48,13 @@ Also if you need to do a clean Build
   catkin clean -b --profile odroid
 ```
 
-## Re-satarting the container running
+## Re-starting the container
 You only need to run the container once and then it stays stored on you machine drive. To run it again you must restart it and the attach to it.
 ```bash
   docker restart  name_of_the_container
   docker attach name_of_the_container
 ```
-By detault docker assing some random name to the continer to check the name of you particular continer you can user
+By detault docker assing some random name to the continer to check the name of you particular continer you can use:
 
 ```bash
 docker ps -a
@@ -71,7 +71,7 @@ To copy you need to copy the workspace into the model car. And reconfigure the w
 ```bash
 target=root@192.168.43.102:./model_car/$ws_name/
 ```
-As it is now. The configuration script only works if you copy the workspace into /root/model_car inside the model car. If you want to compile somewhere else you must change the workspace directory on the container to match exactly the path of the workspace in the model car.
+As it is now. The configuration script only works if you copy the workspace into /root/model_car inside the model car. If you want to copy the binaries somewhere else you must change the workspace directory on the container image to match exactly the path of the workspace in the model car.
 
 ## Testing compilation
 In case you intend to try if your code compile using ros-indigo. You can simply attach to the container and navigate to the proper directory there you can use:
